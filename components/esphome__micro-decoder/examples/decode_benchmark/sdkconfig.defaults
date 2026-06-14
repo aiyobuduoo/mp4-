@@ -1,0 +1,24 @@
+# Decode Benchmark - ESP-IDF Configuration
+
+# Custom partition table (4MB app partition for large embedded audio)
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions_4mb.csv"
+
+# Disable watchdogs for uninterrupted benchmark
+CONFIG_ESP_TASK_WDT_EN=n
+CONFIG_ESP_TASK_WDT_INIT=n
+
+# Main task stack size
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=10000
+
+# Reduce log overhead during benchmark
+CONFIG_LOG_DEFAULT_LEVEL_WARN=y
+
+# Compiler optimizations
+CONFIG_COMPILER_OPTIMIZATION_PERF=y
+
+# Enable all codecs
+CONFIG_MICRO_DECODER_CODEC_FLAC=y
+CONFIG_MICRO_DECODER_CODEC_MP3=y
+CONFIG_MICRO_DECODER_CODEC_OPUS=y
+CONFIG_MICRO_DECODER_CODEC_WAV=y

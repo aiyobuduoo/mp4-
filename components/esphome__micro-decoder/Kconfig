@@ -1,0 +1,27 @@
+menu "Micro Decoder"
+
+    config MICRO_DECODER_CODEC_FLAC
+        bool "Enable FLAC codec support"
+        default y
+        help
+            Enable FLAC audio decoding via micro-flac.
+
+    config MICRO_DECODER_CODEC_MP3
+        bool "Enable MP3 codec support"
+        default y
+        help
+            Enable MP3 audio decoding via micro-mp3.
+
+    config MICRO_DECODER_CODEC_OPUS
+        bool "Enable Opus codec support"
+        default y
+        help
+            Enable Opus/OGG audio decoding via micro-opus.
+
+    config MICRO_DECODER_CODEC_WAV
+        bool "Enable WAV codec support"
+        default y
+        help
+            Enable WAV audio decoding via micro-wav.
+
+endmenu

@@ -1,0 +1,42 @@
+dependencies:
+  esphome/micro-flac:
+    rules:
+    - if: $CONFIG{MICRO_DECODER_CODEC_FLAC} == True
+    version: '>=0.1.1'
+  esphome/micro-mp3:
+    rules:
+    - if: $CONFIG{MICRO_DECODER_CODEC_MP3} == True
+    version: '>=0.2.0'
+  esphome/micro-opus:
+    rules:
+    - if: $CONFIG{MICRO_DECODER_CODEC_OPUS} == True
+    version: '>=0.3.5'
+  esphome/micro-wav:
+    rules:
+    - if: $CONFIG{MICRO_DECODER_CODEC_WAV} == True
+    version: '>=0.1.0'
+  idf: '>=5.5'
+description: C++ audio decoding library with HTTP/HTTPS streaming, supporting FLAC,
+  MP3, Opus, and WAV
+files:
+  exclude:
+  - .claude/**
+  - .github/**
+  - .clang-*
+  - .clangd
+  - .markdownlint.yaml
+  - .pre-commit-config.yaml
+  - CLAUDE.md
+  - build/**
+  - examples/**
+  - host_examples/**
+  - script/**
+license: Apache-2.0
+maintainers:
+- Kevin Ahrendt <kevin.ahrendt@openhomefoundation.org>
+repository: git://github.com/esphome-libs/micro-decoder.git
+repository_info:
+  commit_sha: 0bc59c3aa82235dd10e9c1b6f9fb1909419afc32
+  path: .
+url: https://github.com/esphome-libs/micro-decoder
+version: 0.3.0

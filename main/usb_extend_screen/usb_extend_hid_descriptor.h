@@ -1,0 +1,79 @@
+#ifndef APP_USB_EXTEND_HID_DESCRIPTOR_H
+#define APP_USB_EXTEND_HID_DESCRIPTOR_H
+
+#include "sdkconfig.h"
+#include "tusb.h"
+
+#define USB_EXTEND_TOUCH_POINTS CONFIG_ESP_LCD_TOUCH_MAX_POINTS
+
+_Static_assert(USB_EXTEND_TOUCH_POINTS == 5,
+               "USB HID touch descriptor requires five touch points");
+
+enum {
+    USB_EXTEND_REPORT_ID_TOUCH = 1,
+    USB_EXTEND_REPORT_ID_MAX_COUNT,
+};
+
+/*
+ * The report layout below must remain in sync with
+ * usb_extend_touch_report_t in usb_extend_hid.h.
+ */
+
+#define USB_EXTEND_HID_REPORT_DESC_TOUCH_SCREEN(report_id, width, height) \
+    HID_USAGE_PAGE(HID_USAGE_PAGE_DIGITIZER), \
+    HID_USAGE(0x04), \
+    HID_COLLECTION(HID_COLLECTION_APPLICATION), \
+      HID_REPORT_ID(report_id) \
+      USB_EXTEND_FINGER_USAGE(width, height) \
+      USB_EXTEND_FINGER_USAGE(width, height) \
+      USB_EXTEND_FINGER_USAGE(width, height) \
+      USB_EXTEND_FINGER_USAGE(width, height) \
+      USB_EXTEND_FINGER_USAGE(width, height) \
+      HID_USAGE(0x54), \
+      HID_LOGICAL_MAX(127), \
+      HID_REPORT_COUNT(1), \
+      HID_REPORT_SIZE(8), \
+      HID_INPUT(HID_DATA | HID_VARIABLE | HID_ABSOLUTE), \
+      HID_REPORT_ID(report_id + 1) \
+      HID_USAGE(0x55), \
+      HID_REPORT_COUNT(1), \
+      HID_LOGICAL_MAX(0x10), \
+      HID_FEATURE(HID_DATA | HID_VARIABLE | HID_ABSOLUTE), \
+    HID_COLLECTION_END
+
+#define USB_EXTEND_FINGER_USAGE(width, height) \
+    HID_USAGE(0x42), \
+    HID_COLLECTION(HID_COLLECTION_LOGICAL), \
+    HID_USAGE(0x42), \
+    HID_LOGICAL_MIN(0), \
+    HID_LOGICAL_MAX(1), \
+    HID_REPORT_SIZE(1), \
+    HID_REPORT_COUNT(1), \
+    HID_INPUT(HID_DATA | HID_VARIABLE | HID_ABSOLUTE), \
+    HID_REPORT_COUNT(7), \
+    HID_INPUT(HID_CONSTANT | HID_ARRAY | HID_ABSOLUTE), \
+    HID_REPORT_SIZE(8), \
+    HID_USAGE(0x51), \
+    HID_REPORT_COUNT(1), \
+    HID_INPUT(HID_DATA | HID_VARIABLE | HID_ABSOLUTE), \
+    HID_USAGE_PAGE(HID_USAGE_PAGE_DESKTOP), \
+    HID_LOGICAL_MAX_N(width, 2), \
+    HID_REPORT_SIZE(16), \
+    HID_UNIT_EXPONENT(0x0e), \
+    HID_UNIT(0x13), \
+    HID_USAGE(0x30), \
+    HID_PHYSICAL_MIN(0), \
+    HID_PHYSICAL_MAX_N(width, 2), \
+    HID_INPUT(HID_DATA | HID_VARIABLE | HID_ABSOLUTE), \
+    HID_LOGICAL_MAX_N(height, 2), \
+    HID_PHYSICAL_MAX_N(height, 2), \
+    HID_USAGE(0x31), \
+    HID_INPUT(HID_DATA | HID_VARIABLE | HID_ABSOLUTE), \
+    HID_USAGE_PAGE(HID_USAGE_PAGE_DIGITIZER), \
+    HID_USAGE(0x48), \
+    HID_USAGE(0x49), \
+    HID_REPORT_COUNT(2), \
+    HID_INPUT(HID_DATA | HID_VARIABLE | HID_ABSOLUTE), \
+    HID_COLLECTION_END,
+
+#endif

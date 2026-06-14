@@ -1,0 +1,98 @@
+# Build artifacts
+build/
+*.o
+*.a
+*.so
+*.la
+*.lo
+.libs/
+.deps/
+
+# ESP-IDF specific
+sdkconfig
+sdkconfig.old
+*.bin
+*.elf
+*.map
+
+# PlatformIO
+.pio/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake-build-*/
+compile_commands.json
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.cproject
+.project
+.settings/
+
+# OS specific
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.Python
+venv/
+env/
+
+# Logs
+*.log
+log/
+
+# Test outputs
+*.wav
+*.aac
+*.pcm
+test_output/
+
+# Debug symbols
+*.dSYM/
+*.pdb
+
+# Documentation
+doc/html/
+doc/latex/
+*.pdf
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+.cache/
+
+# Component registry
+dependencies.lock
+managed_components/
+
+# Example build files
+host_examples/*/build*/
+host_examples/*/sdkconfig
+host_examples/*/sdkconfig.old
+
+# Source archive
+*.zip
+
+# Core dumps
+core
+core.*
+vgcore.*
+
+# Coverage
+*.gcda
+*.gcno
+*.gcov
+coverage/
+htmlcov/

@@ -1,0 +1,22 @@
+# ESP-IDF build output
+/build/
+/managed_components/
+/sdkconfig.old
+
+# Editor and local tooling
+/.vscode/
+/.devcontainer/
+/.clangd
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Local secrets and environment overrides
+.env
+.env.*
+*.pem
+*.key
+secrets.*
