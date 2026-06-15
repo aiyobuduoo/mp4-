@@ -12,7 +12,7 @@ dependencies:
       type: local
     version: 0.3.0
   esphome/micro-mp3:
-    component_hash: b6637ace7c12f72b989634d02359fd6f6cb072ce8a9bd66f1a602dc4cd1e95ba
+    component_hash: c0c1da0b22a5543c0fe86094a03ed4746ae8ad220a432306d88e5eab1f6f7b63
     dependencies:
     - name: idf
       require: private
@@ -20,7 +20,7 @@ dependencies:
     source:
       registry_url: https://components.espressif.com/
       type: service
-    version: 0.2.1
+    version: 0.2.3
   espressif/cmake_utilities:
     component_hash: 351350613ceafba240b761b4ea991e0f231ac7a9f59a9ee901f751bddc0bb18f
     dependencies:
